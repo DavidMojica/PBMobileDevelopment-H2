@@ -17,6 +17,6 @@ public class initial_load extends AppCompatActivity {
                 startActivity(new Intent(initial_load.this, MainActivity.class));
                 finish();
             }
-        }, 2500);
+        }, 3200);
     }
 }
