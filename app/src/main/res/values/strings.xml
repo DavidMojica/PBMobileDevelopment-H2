@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MathChampion</string>
+
+
+
+    <!-- 3RD Screen -->
+    <string name="default_result_text">Default text. The operation could not be done.</string>
 </resources>
