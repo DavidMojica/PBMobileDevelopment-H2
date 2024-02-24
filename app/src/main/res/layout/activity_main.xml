@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingrese ángulo:"
+            android:text="@string/deg_text"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"/>
@@ -26,7 +26,7 @@
             android:id="@+id/angleInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ángulo"
+            android:hint="@string/deg_placeholder"
             android:inputType="numberDecimal"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
@@ -43,14 +43,14 @@
                 android:id="@+id/sinButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Seno"
+                android:text="@string/deg_sin"
                 android:layout_marginEnd="10dp"/>
 
             <Button
                 android:id="@+id/cosButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Coseno"/>
+                android:text="@string/deg_cos"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -67,7 +67,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingrese número:"
+            android:text="@string/num_text"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"/>
@@ -85,7 +85,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:hint="Número"
+                android:hint="@string/num_placeholder"
                 android:inputType="numberDecimal"
                 android:layout_marginEnd="10dp"/>
 
@@ -94,7 +94,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:hint="Raiz/Exponente"
+                android:hint="@string/num2_placeholder"
                 android:inputType="numberDecimal"/>
         </LinearLayout>
 
@@ -110,14 +110,14 @@
                 android:id="@+id/sqrtButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Raíz"
+                android:text="@string/num_sqrt"
                 android:layout_marginEnd="10dp"/>
 
             <Button
                 android:id="@+id/powerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Potencia"/>
+                android:text="@string/num_pow"/>
         </LinearLayout>
     </LinearLayout>
 

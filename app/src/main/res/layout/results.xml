@@ -19,12 +19,10 @@
     </TextView>
 
     <Button
-        android:id="@+id/sinButton"
+        android:id="@+id/returnBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_result_text"
         android:layout_marginEnd="10dp"/>
-
-
 
 </LinearLayout>
