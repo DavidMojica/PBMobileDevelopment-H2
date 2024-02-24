@@ -31,33 +31,33 @@ public class MainActivity extends AppCompatActivity {
         sinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculateSine();
+                getSine();
             }
         });
 
         cosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculateCosine();
+                getCosine();
             }
         });
 
         sqrtButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculateSquareRoot();
+                getRoot();
             }
         });
 
         powerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculatePower();
+                getPower();
             }
         });
     }
 
-    private void calculateSine() {
+    private void getSine() {
         String angleText = angleInput.getText().toString().trim();
         if (!angleText.isEmpty()) {
             double angle = Double.parseDouble(angleText);
@@ -68,9 +68,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
-    private void calculateCosine() {
+    private void getCosine() {
         String angleText = angleInput.getText().toString().trim();
         if (!angleText.isEmpty()) {
             double angle = Double.parseDouble(angleText);
@@ -81,27 +79,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void calculateSquareRoot() {
+    private void getRoot() {
         String numberText = numberInput.getText().toString().trim();
         String expoText = exponentInput.getText().toString().trim();
         if (!numberText.isEmpty() && !expoText.isEmpty()) {
             double number = Double.parseDouble(numberText);
             int expo = Integer.parseInt(expoText);
             double result = Math.pow(number, (double) 1 /expo);
-            openResultsView("Raíz"+ expo + " de " + number + " es " + result);
+            openResultsView("Raiz "+ expo + " de " + number + " es " + result);
         } else {
             showToast("Ingrese un número");
         }
     }
 
-    private void calculatePower() {
+    private void getPower() {
         String numberText = numberInput.getText().toString().trim();
         String expoText = exponentInput.getText().toString().trim();
         if (!numberText.isEmpty() && !expoText.isEmpty()) {
             double number = Double.parseDouble(numberText);
             int expo = Integer.parseInt(expoText);
             double result = Math.pow(number, expo);
-            openResultsView("Potencia de " + number + " elevado a"+ expo +" es " + result);
+            openResultsView("Potencia de " + number + " elevado a "+ expo +" es " + result);
         } else {
             showToast("Ingrese un número");
         }

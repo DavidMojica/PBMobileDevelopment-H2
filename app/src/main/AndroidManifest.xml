@@ -27,10 +27,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
         </activity>
 
         <!-- 3RD activity -->
+        <activity
+            android:name=".results"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
