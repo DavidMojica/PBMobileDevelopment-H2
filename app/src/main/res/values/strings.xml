@@ -14,4 +14,5 @@
     <string name="num_pow">Potencia</string>
     <!-- 3RD Screen -->
     <string name="default_result_text">¡Ups! Algo salió mal.</string>
+    <string name="back">Regresar</string>
 </resources>
