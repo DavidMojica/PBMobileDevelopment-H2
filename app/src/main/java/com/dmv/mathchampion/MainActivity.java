@@ -1,5 +1,6 @@
 package com.dmv.mathchampion;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText angleInput, numberInput;
+    private EditText angleInput, numberInput, exponentInput;
     private Button sinButton, cosButton, sqrtButton, powerButton;
 
     @Override
@@ -19,11 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
         angleInput = findViewById(R.id.angleInput);
         numberInput = findViewById(R.id.numberInput);
+        exponentInput = findViewById(R.id.exponentInput);
 
         sinButton = findViewById(R.id.sinButton);
         cosButton = findViewById(R.id.cosButton);
         sqrtButton = findViewById(R.id.sqrtButton);
         powerButton = findViewById(R.id.powerButton);
+
 
         sinButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,18 +62,20 @@ public class MainActivity extends AppCompatActivity {
         if (!angleText.isEmpty()) {
             double angle = Double.parseDouble(angleText);
             double result = Math.sin(Math.toRadians(angle));
-            showToast("Seno de " + angle + " es " + result);
+            openResultsView("Seno de " + angle + " es " + result);
         } else {
             showToast("Ingrese un ángulo");
         }
     }
+
+
 
     private void calculateCosine() {
         String angleText = angleInput.getText().toString().trim();
         if (!angleText.isEmpty()) {
             double angle = Double.parseDouble(angleText);
             double result = Math.cos(Math.toRadians(angle));
-            showToast("Coseno de " + angle + " es " + result);
+            openResultsView("Coseno de " + angle + " es " + result);
         } else {
             showToast("Ingrese un ángulo");
         }
@@ -78,10 +83,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void calculateSquareRoot() {
         String numberText = numberInput.getText().toString().trim();
-        if (!numberText.isEmpty()) {
+        String expoText = exponentInput.getText().toString().trim();
+        if (!numberText.isEmpty() && !expoText.isEmpty()) {
             double number = Double.parseDouble(numberText);
-            double result = Math.sqrt(number);
-            showToast("Raíz cuadrada de " + number + " es " + result);
+            int expo = Integer.parseInt(expoText);
+            double result = Math.pow(number, (double) 1 /expo);
+            openResultsView("Raíz"+ expo + " de " + number + " es " + result);
         } else {
             showToast("Ingrese un número");
         }
@@ -89,15 +96,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void calculatePower() {
         String numberText = numberInput.getText().toString().trim();
-        if (!numberText.isEmpty()) {
+        String expoText = exponentInput.getText().toString().trim();
+        if (!numberText.isEmpty() && !expoText.isEmpty()) {
             double number = Double.parseDouble(numberText);
-            double result = Math.pow(number, 2);
-            showToast("Potencia de " + number + " elevado a 2 es " + result);
+            int expo = Integer.parseInt(expoText);
+            double result = Math.pow(number, expo);
+            openResultsView("Potencia de " + number + " elevado a"+ expo +" es " + result);
         } else {
             showToast("Ingrese un número");
         }
     }
 
+    private void openResultsView(String text) {
+        Intent i = new Intent(MainActivity.this, results.class);
+        i.putExtra("text", text);
+        startActivity(i);
+    }
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
