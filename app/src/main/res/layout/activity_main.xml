@@ -119,6 +119,28 @@
                 android:layout_height="wrap_content"
                 android:text="@string/num_pow"/>
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/savedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/trigonometryLayout"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/savedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
     </LinearLayout>
+
+
 
 </RelativeLayout>
