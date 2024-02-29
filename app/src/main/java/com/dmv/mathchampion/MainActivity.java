@@ -1,23 +1,34 @@
 package com.dmv.mathchampion;
 
+import static com.dmv.mathchampion.R.id.savedText;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.FileInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText angleInput, numberInput, exponentInput;
     private Button sinButton, cosButton, sqrtButton, powerButton;
+    TextView savedText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        savedText = findViewById(R.id.savedText);
         angleInput = findViewById(R.id.angleInput);
         numberInput = findViewById(R.id.numberInput);
         exponentInput = findViewById(R.id.exponentInput);
@@ -55,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 getPower();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setSavedData(getApplicationContext(), "data.txt", savedText);
     }
 
     private void getSine() {
@@ -112,5 +129,27 @@ public class MainActivity extends AppCompatActivity {
     }
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+    public static void setSavedData(Context context, String filename, TextView textView) {
+        FileInputStream fis = null;
+        try {
+            fis = context.openFileInput(filename);
+            StringBuilder stringBuilder = new StringBuilder();
+            int character;
+            while ((character = fis.read()) != -1) {
+                stringBuilder.append((char) character);
+            }
+            textView.setText(stringBuilder.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
